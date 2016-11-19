@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <style>
+        body{
+            font-family: "Microsoft YaHei", "宋体", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif, FreeSans, Arimo;
+        }
+        .left_bar{
+            height: 600px;
+            width: 20%;
+            border: solid 1px darkgray;
+        }
+        .button{
+            height: 50px;
+            border: solid 1px darkgray;
+        }
+        .f_line{
+            height: 50px;
+            width: 100%;
+            border: solid 1px darkgray;
+        }
+        .usr_img{
+            height: 50px;
+            width: 50px;
+            float: left;
+
+        }
+        .usr_img_head{
+            height: 40px;
+            width: 40px;
+            margin: 5px;
+        }
+        .usr_name{
+            height: 25px;
+            width: 60%;
+            float: left;
+            margin-left: 5px;
+            font-size: 15px;
+            color: dimgray;
+            font-weight: 500;
+        }
+        .usr_text{
+            height: 25px;
+            width: 60%;
+            float: left;
+            margin-left: 5px;
+            font-size: 12px;
+            color: grey;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var  test_json = {
+        "title":"usr_list",
+        "name_list":[
+            {"name":"test1",
+                "usr_introduce":"int_test1",
+                "usr_imgURL":"img/win8.png"},
+            {"name":"test2",
+                "usr_introduce":"int_test1",
+                "usr_imgURL":"img/win8.png"}
+        ]
+    };
+    function insert_name(){
+
+        for (var i=0;test_json.name_list[i]!=null;i++){
+            var content='<div class="f_line"+" id="f_line' + i +  '" >'
+                    +'<div class="usr_img">'
+                    +'<img class="usr_img_head" src="'+test_json.name_list[i].usr_imgURL+'">'
+                    +'</div>'
+                    +'<div class="usr_name">'+test_json.name_list[i].name+'</div>'
+                    +'<div class="usr_text">'+test_json.name_list[i].usr_introduce+'</div>'
+                    +'</div>';
+            $("#usr_list").append(""+content+"");
+        }
+    };
+</script>
+<div class="left_bar">
+    <div class="button">
+
+    </div>
+    <div class="usr_list" id="usr_list">
+
+    </div>
+</div>
+<script>insert_name();</script>
+</body>
+</html>
